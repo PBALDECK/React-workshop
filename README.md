@@ -81,10 +81,10 @@ Vous êtes libre sur votre approche, vous pouvez faire de simple requête ou uti
 
 # Evaluations
 
-- **MVP** 12 points
+- **MVP** 10 points
 
 - **Clean code** 3 points
 
-- **Pour aller plus loin** 5 points
+- **Pour aller plus loin** 7 points
 
 \***_Clean code_** : ne pas avoir d'erreurs de type, ou l'utilisation de **any** pour Typescript, une architecture propre.
