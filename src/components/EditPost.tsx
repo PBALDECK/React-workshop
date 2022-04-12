@@ -4,6 +4,9 @@ import { Picker_Picture, Post, PostContent, User } from '../api/types'
 import Field from '../private/Field'
 import ImageGalleryPicker from './ImageGalleryPicker'
 import {getPost} from '../api/post'
+import { getAllUser } from '../api/user'
+import { userInfo } from 'os'
+import { formatDiagnosticsWithColorAndContext } from 'typescript'
 
 type FormEvent =
     | React.ChangeEvent<HTMLTextAreaElement>
@@ -79,12 +82,19 @@ const EditPost = () => {
         const data = await getPost(id);
         convertToFormData(data)
     }
+    async function _getUsers(){
+        const data = await getAllUser();
+        setUsers(data)
+    }
+    useEffect(() => {
+        _getUsers();
+    }, []);
 
     useEffect(() => {
         // chaque fois que l'id change
         _getPost(Number(id));
     }, [id]);
-    
+
     function handleToggleModal() {
         // Show & Hide picture modal
         setShowPictureModal((s) => !s)
@@ -102,10 +112,10 @@ const EditPost = () => {
     function getSelectedAuthor() {
         // prevent bad request and use a placeholder if no data
         if (formData.userId) {
-            // [WORK]
-            // You need to find the author name with the server
-            return '[TO DO]'
-        } else {
+            const selectedUser = users.find((user) => user.id === formData.userId)
+            if (selectedUser) {
+                return selectedUser.name;
+            }
             return 'Unknown author'
         }
     }
