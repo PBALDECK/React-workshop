@@ -37,7 +37,7 @@ npm start or yarn start
 
 - Avoir sur votre Homepage l'affichage des vos posts V
 
-- Créer ou éditer un post V
+- Créer ou éditer un post V pour créer
 
 - Associé une photo à un post V
 
@@ -47,7 +47,7 @@ npm start or yarn start
 
 - Le nom de l'auteur devra être visible dans le post V
 
-- Avoir une page listant l'ensemble des auteurs V~
+- Avoir une page listant l'ensemble des auteurs V
 
 - Créer ou éditer un auteur
 

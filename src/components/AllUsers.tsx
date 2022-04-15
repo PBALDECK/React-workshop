@@ -19,10 +19,13 @@ const AllUsers = () => {
     function renderUsers(values: User) {
         return (
             <div key={values.id}>
-                <h1> {values.name} </h1>
+                <h1> Nom :  {values.name} </h1>
                 <ul>
                     <li>Pseudo : {values.username}</li>
                     <li>Email : {values.email}</li>
+                    <li>Entreprise : {values.company.name}</li>
+                    <li>Téléphone : {values.phone}</li>
+                    <li>Adresse : {values.address.street}{values.address.city} {values.address.zipcode}</li>
                 </ul>
             </div>
             
