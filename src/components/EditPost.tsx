@@ -77,6 +77,7 @@ const EditPost = () => {
         // helper to convert post data into formData
         // use it before set formData with API data
         // ex: convertToFormData(data):
+        // eslint-disable-next-line array-callback-return
         ;(Object.keys(post) as Array<keyof typeof post>).map((key) => {
             setFormData({
                 name: key,
@@ -99,6 +100,7 @@ const EditPost = () => {
     useEffect(() => {
         // chaque fois que l'id change
         _getPost(Number(id));
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [id]);
 
     function handleToggleModal() {
