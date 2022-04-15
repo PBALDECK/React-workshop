@@ -3,7 +3,7 @@ import { Link, useNavigate, useParams } from 'react-router-dom'
 import { Picker_Picture, Post, PostContent, User } from '../api/types'
 import Field from '../private/Field'
 import ImageGalleryPicker from './ImageGalleryPicker'
-import {getPost, getPosts, deletePost, updatePost, createPost } from '../api/post'
+import {getPost, deletePost, updatePost, createPost } from '../api/post'
 import { getAllUser,} from '../api/user'
 
 type FormEvent =

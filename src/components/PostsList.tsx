@@ -37,7 +37,8 @@ const PostsList = () => {
                 <PostItem {...values} />
             </div>
         )
-    }    
+    } 
+
     if (loading) {
         return (
             <section className="hero">

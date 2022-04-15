@@ -39,9 +39,9 @@ npm start or yarn start
 
 - Créer ou éditer un post V pour créer
 
-- Associé une photo à un post V
+- Associer une photo à un post V
 
-- Associé un auteur à un post V
+- Associer un auteur à un post V
 
 - Détruire un post V
 
