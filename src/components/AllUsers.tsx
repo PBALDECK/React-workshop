@@ -1,12 +1,10 @@
 import React, { useEffect, useState } from 'react'
 import { User } from '../api/types'
 import {getAllUser} from '../api/user'
-import UserProfile from './UserProfile'
 
 
 const AllUsers = () => {
     const [users, setUsers] = useState<Array<User>>([])
-    const [author, setAuthor] = useState<User | null>(null)
 
     async function _getAllUsers() {
         console.log("useEffect");
@@ -17,14 +15,20 @@ const AllUsers = () => {
     useEffect(() => {
         _getAllUsers();
     }, [])
-    function renderItem(values: User) {
+
+    function renderUsers(values: User) {
         return (
             <div key={values.id}>
-                <UserProfile {...values} />
+                <h1> {values.name} </h1>
+                <ul>
+                    <li>Pseudo : {values.username}</li>
+                    <li>Email : {values.email}</li>
+                </ul>
             </div>
+            
         )
     }
-    return <ul className="User-list">{users.map(renderItem)}</ul>
+    return <ul className="user-list">{users.map(renderUsers)}</ul>
 }
 
 export default AllUsers

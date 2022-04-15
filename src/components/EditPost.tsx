@@ -3,10 +3,8 @@ import { Link, useNavigate, useParams } from 'react-router-dom'
 import { Picker_Picture, Post, PostContent, User } from '../api/types'
 import Field from '../private/Field'
 import ImageGalleryPicker from './ImageGalleryPicker'
-import {getPost} from '../api/post'
-import { getAllUser } from '../api/user'
-import { userInfo } from 'os'
-import { formatDiagnosticsWithColorAndContext } from 'typescript'
+import {getPost, getPosts, deletePost, updatePost, createPost } from '../api/post'
+import { getAllUser,} from '../api/user'
 
 type FormEvent =
     | React.ChangeEvent<HTMLTextAreaElement>
@@ -43,14 +41,22 @@ const EditPost = () => {
     async function handleAddOrCreatePost(
         event: React.FormEvent<HTMLFormElement>
     ) {
+        console.log(formData)
         // remove default reloading page
         event.preventDefault()
+
+        if (id) {
+            await updatePost(formData as Post)
+        } else {
+            await createPost(formData)
+        }
 
         // back to Home
         navigate('/')
     }
 
     async function handleDeletePost() {
+        await deletePost(Number(id))
         // back to Home
         navigate('/')
     }
@@ -192,7 +198,8 @@ const EditPost = () => {
 
                 <div className="field is-grouped is-grouped-centered">
                     <p className="control">
-                        <button type="submit" className="button is-primary">
+                        <button type="submit" className="button is-primary"
+                        >                          
                             Submit
                         </button>
                     </p>
